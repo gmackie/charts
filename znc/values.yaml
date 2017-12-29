@@ -1,0 +1,56 @@
+replicaCount: 1
+image:
+  repository: znc
+  tag: 1.6.5
+  pullPolicy: IfNotPresent
+service:
+  serviceType: ClusterIP
+  externalIPs: [
+    209.251.245.123
+  ]
+  
+resources: {}
+  # limits:
+  #   cpu: 10m
+  #   memory: 20Mi
+  # requests:
+  #   cpu: 10m
+  #   memory: 20Mi
+nodeAffinity:
+  key: kubernetes.io/hostname
+  value: libido
+persistence:
+  enabled: false
+  accessMode: ReadWriteOnce
+  size: 10Gi
+
+  # If defined, PVC must be created manually before volume will be bound
+  # existingClaim: ""
+
+  # If set to "-", storageClassName: "", which disables dynamic provisioning
+  # If undefined or set to null, defaults to the default storageClass
+  # storageClass: ""
+config: |
+  Version = 1.6.5
+  LoadModule = webadmin
+
+  <Listener l>
+    Port = 6697
+    IPv4 = true
+    IPv6 = false
+    SSL = false
+    AllowWeb = true
+  </Listener>
+
+  <User gmackie>
+    Pass       = sha256#35939d347e593524396c3001e4a4a1af24c45bea48d8628df288e30e33eca3c0#JqBW3Xtf?m5nXOI+tD-E#
+    Admin      = true
+    Nick       = gmackie
+    AltNick    = gmackie_
+    Ident      = gmackie
+    RealName   = This kube is bouncy...
+    BindHost   = 0.0.0.0
+    LoadModule = chansaver
+    LoadModule = controlpanel
+  </User>
+
