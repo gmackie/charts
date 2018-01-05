@@ -4,8 +4,8 @@
 replicaCount: 1
 image:
   repository: gmackie/blog
-  tag: v0
-  pullPolicy: IfNotPresent
+  tag: latest
+  pullPolicy: Always
 service:
   name: blog
   type: ClusterIP
