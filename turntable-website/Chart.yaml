@@ -1,4 +1,4 @@
 apiVersion: v1
 description: A Helm chart for the turntable.bot landing page
-name: turntableWebsite
+name: turntable-website
 version: 0.1.0
