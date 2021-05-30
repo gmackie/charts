@@ -3,11 +3,11 @@
 # Declare variables to be passed into your templates.
 replicaCount: 1
 image:
-  repository: gmackie/blog
-  tag: latest
+  repository: gmackie/k6gam
+  tag: v2
   pullPolicy: Always
 service:
-  name: blog
+  name: k6gam
   type: ClusterIP
   externalPort: 80
   internalPort: 80
@@ -15,15 +15,15 @@ ingress:
   enabled: true
   # Used to create an Ingress record.
   hosts:
-    - grahammackie.com
+    - k6gam.radio
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/issuer: letsencrypt-prod
   tls:
     # Secrets must be manually created in the namespace.
-    - secretName: blog-example-tls
+    - secretName: radio-example-tls
       hosts:
-        - grahammackie.com
+        - k6gam.radio
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little

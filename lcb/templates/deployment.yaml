@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ template "blog.fullname" . }}
+  name: {{ template "lcb.fullname" . }}
 spec:
   selector:
     matchLabels:
-      app: {{ template "blog.name" . }}
+      app: {{ template "lcb.name" . }}
       release: {{ .Release.Name }}
   replicas: 1
   template:
     metadata:
       labels:
-        app: {{ template "blog.name" . }}
+        app: {{ template "lcb.name" . }}
         release: {{ .Release.Name }}
     spec:
       containers:
-      - image: gmackie/blog:latest
+      - image: gmackie/lionelcoinbank:v2
         imagePullPolicy: Always
         name: {{ .Chart.Name }}
         ports:
