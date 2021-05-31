@@ -1,4 +1,4 @@
-# Default values for blog.
+# Default values for turntable.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 replicaCount: 1
@@ -7,7 +7,7 @@ image:
   tag: latest
   pullPolicy: Always
 service:
-  name: blog
+  name: turntable
   type: ClusterIP
   externalPort: 80
   internalPort: 80
@@ -21,7 +21,7 @@ ingress:
     kubernetes.io/tls-acme: "true"
   tls:
     # Secrets must be manually created in the namespace.
-    - secretName: blog-example-tls
+    - secretName: turntable-example-tls
       hosts:
         - turntable.bot
 resources: {}
