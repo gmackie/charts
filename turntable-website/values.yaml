@@ -18,7 +18,7 @@ ingress:
     - turntable.bot
   annotations:
     kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
+    cert-manager.io/issuer: letsencrypt-prod
   tls:
     # Secrets must be manually created in the namespace.
     - secretName: turntable-example-tls
