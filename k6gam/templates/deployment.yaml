@@ -15,7 +15,7 @@ spec:
         release: {{ .Release.Name }}
     spec:
       containers:
-      - image: gmackie/k6gam:v2
+      - image: gmackie/k6gam:v3
         imagePullPolicy: Always
         name: {{ .Chart.Name }}
         ports:

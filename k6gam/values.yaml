@@ -4,7 +4,7 @@
 replicaCount: 1
 image:
   repository: gmackie/k6gam
-  tag: v2
+  tag: v3
   pullPolicy: Always
 service:
   name: k6gam

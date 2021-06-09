@@ -1,4 +1,4 @@
 apiVersion: v1
 description: A Helm chart for static website for K6GAM info
 name: k6gam
-version: 0.1.0
+version: 0.1.1
